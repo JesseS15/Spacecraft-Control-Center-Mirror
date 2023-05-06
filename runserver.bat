@@ -26,6 +26,17 @@ rem --Commit migrations to SQL Database
 python manage.py makemigrations
 python manage.py migrate
 
+:menu
+echo:
+set /p environment="Do you already have a Test Conductor account? (y/n) "
+echo:
+if /i "%environment%"=="y" goto :runserver
+if /i "%environment%"=="n" goto :createuser
+    
+:runserver 
+python manage.py runserver 0.0.0.0:8000
+
+:createuser
 echo:
 echo ============================================================================
 echo Please setup the Test Conductor (admin) account
