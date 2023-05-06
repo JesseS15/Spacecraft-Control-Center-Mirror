@@ -1,0 +1,25 @@
+.option4 {
+  border-left: 7px solid #1f1cb0;
+  background-color: #dadada;
+  color: #1f1cb0;
+  cursor: pointer;
+}
+.option1:hover {
+  border-left: 7px solid #dadada;
+  background-color: #dadada;
+}
+.option2:hover {
+  border-left: 7px solid #dadada;
+  background-color: #dadada;
+}
+.option3:hover {
+  border-left: 7px solid #dadada;
+  background-color: #dadada;
+}
+.option4:hover {
+  border-left: 7px solid #1f1cb0;
+}
+.option5:hover {
+  border-left: 7px solid #dadada;
+  background-color: #dadada;
+}

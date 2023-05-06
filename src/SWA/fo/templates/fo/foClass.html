@@ -1,0 +1,51 @@
+
+{% extends "home/index.html" %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="eng"></html>
+<head>
+    <meta charset="utf-8">
+    <title>Test</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"/>
+</head>
+{% block start %}
+  <body style= "background-size:cover; background-attachment: fixed; background-repeat: no-repeat; background-image: url({% static 'images/space.jpg' %}); height: 100vh">
+    <div class="row">
+  
+        {% if user.is_authenticated %}
+        <center>
+          <div class="header" style="color:white;">
+          <h3>Welcome to {{ class_name }}</h3></div>
+          <div class="box">
+            <div class="content">
+              <h3 class="list" style="color:white;margin-left: 10%;text-align: left; margin-top: 2.5%;">Sim List</h3>
+              <table id = "simtable" border="2" style="width: 80%; margin-left: 2.5%; margin-top: 2.5%;">
+                <thead>
+                  <th style="font-size:18px; width: 18%">Name</th>
+                  <th style="font-size:18px; width: 18%">Status</th>
+                  <th style="font-size:18px; width: 54%">Flight Operators in Sim</th>
+                </thead>
+                 {% for sim in sims %}
+                <tr style="font-size:16px; height: 5vh;">
+                  <td style="font-size:16px;"><a class = "simlist" href="{% url 'fo:sim' sim.pk %}">{{ sim }}</a></td>
+                  <td style="font-size:16px;">{{sim.status}}</td>
+                  <td style="text-align:center; font-size: 16px;">
+                    {% for x in sim.fo_list.all %}
+                    <li style = "list-style-type: none;">{{x}}</li>
+                    {% endfor %}
+                  </td>
+                </tr>
+              {% endfor %}
+              </table> 
+              
+        </center>
+        {% else %}
+
+        {% endif %}
+        {% endblock %}
+    </div>
+      
+  </body>
+</html>

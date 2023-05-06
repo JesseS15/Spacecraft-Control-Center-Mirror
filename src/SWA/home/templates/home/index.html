@@ -1,0 +1,104 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="title" content="STaTE Index">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="language" content="English">
+
+  <title>{{title}}</title>
+
+  <!-- bootstrap file -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- bootstrap file-->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <!-- main css -->
+  <link rel="stylesheet" href="{% static "css/index.css" %}" />
+  <link rel="stylesheet" href="../../../static/css/leftnav.css" >
+  <link rel="stylesheet" href="../../../static/css/new.css"> 
+  <link rel="stylesheet" href="../../../static/css/table.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
+
+<!-- HTML !-->
+</head>
+
+<body class="container-fluid">
+
+
+  <header class="row">
+
+    <!-- navbar-->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #1e1e1e;">
+      <div class="container-fluid">
+        <div class="navbar-header" style="color: #ECBD00;">
+          <button class="navbar-toggle" data-toggle="collapse" data-target="#mainNavBar">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" class="styleheader" href="{% url "home:index" %}" style="color: #ECBD00;">STaTE</a>
+        </div>
+        <div class="collapse navbar-collapse" id="mainNavBar">
+          <ul class="nav navbar-nav navbar-right">
+
+            {% if user.is_authenticated %}
+            <li><a href="{% url "home:logout" %}"><span class="glyphicon glyphicon-log-out"></span> &nbsp; Logout</a></li>
+
+              {% if user.is_staff %}
+              <li><a href="{% url "tc:home" %}">Home</a></li>
+              {% else %}
+              <li><a href="{% url "fo:home" %}">Home</a></li>
+              {% endif %}
+
+            {% else %}
+            <li><a href="{% url "home:register" %}"><span class="glyphicon glyphicon-user"></span> &nbsp; Sign up</a></li>
+            <li><a href="{% url "home:login" %}"><span class="glyphicon glyphicon-log-in"></span> &nbsp; Log in</a></li>
+            {% endif %}
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- message here -->
+
+  <div class="row1" style="margin-top: 35px;">
+    {% if messages %}
+    {% for message in messages %}
+        <center style="padding-top: 35px;" class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </center>
+    {% endfor %}
+    {% endif %}
+    {% block acs %}
+    {% block eps %}
+    {% block tcs %}
+    {% block payload %}
+    {% block comms %}
+    {% block console %}
+    {% block leftnav %}
+    {% endblock leftnav %}
+    {% endblock console %}
+    {% endblock comms %}
+    {% endblock payload %}
+    {% endblock tcs %}
+    {% endblock eps %}
+    {% endblock acs %}
+  </div>
+  <div class="row" style="margin-top: 60px;">
+    {% block start %}
+    {% endblock start%}
+  </div>
+</body>
+
+</html>
