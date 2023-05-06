@@ -8,9 +8,9 @@ Project uses Python 3.11.0, utilizing the Django 4.1.6 framework and SQLite data
 
 Development Team:
 - Jesse Slager (Scrum Master and Full Stack)
-- Kyle Garber (Full Stack)
-- Carly Bosma (Frontend)
 - Annamaria Summer (Backend and Database)
 - Jeremy Mog (Backend)
+- Kyle Garber (Full Stack)
+- Carly Bosma (Frontend)
 - Juliana Altamira (Frontend and Backend)
 - Jeosffrey Cevallos (Backend)
