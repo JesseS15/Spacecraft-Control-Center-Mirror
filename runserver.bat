@@ -1,5 +1,5 @@
-rem --This batch file initalizes the STaTE application for hosting
 @echo off
+rem --This batch file initalizes the STaTE application for hosting
 
 echo Spacecraft Control Center Testing and Training Environment
 echo:
