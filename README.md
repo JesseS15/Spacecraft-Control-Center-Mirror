@@ -10,7 +10,7 @@ Development Team:
 - Jesse Slager (Scrum Master and Full Stack)
 - Annamaria Summer (Backend and Database)
 - Kyle Garber (Full Stack)
-- Carly Bosma (Frontend)
+- Carly Bosma (Full Stack)
 - Jeremy Mog (Backend)
 - Juliana Altamira (Frontend and Backend)
 - Jeosffrey Cevallos (Backend)
